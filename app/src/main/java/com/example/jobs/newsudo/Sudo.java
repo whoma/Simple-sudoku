@@ -152,14 +152,15 @@ public class Sudo extends View {
         //进行 写入 数字操作 9 * 9
 
         //Paint.FontMetrics fontMetrics = new Paint.FontMetrics();
-        Paint.FontMetrics fontMetrics = paint.getFontMetrics();
-        float x = width / 2;
-        float y = height / 2 - (fontMetrics.ascent + fontMetrics.descent) / 2 + height / 4;
-
         paint.setColor(Color.BLACK);
         paint.setStyle(Paint.Style.STROKE);
         paint.setTextAlign(Paint.Align.CENTER);
         paint.setTextSize((float) (height * 0.75));
+        Paint.FontMetrics fontMetrics = paint.getFontMetrics();
+        float x = width / 2;
+        float y = height / 2 - (fontMetrics.ascent + fontMetrics.descent) / 2;
+
+
 
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
