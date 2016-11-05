@@ -151,7 +151,8 @@ public class Sudo extends View {
 
         //进行 写入 数字操作 9 * 9
 
-        Paint.FontMetrics fontMetrics = new Paint.FontMetrics();
+        //Paint.FontMetrics fontMetrics = new Paint.FontMetrics();
+        Paint.FontMetrics fontMetrics = paint.getFontMetrics();
         float x = width / 2;
         float y = height / 2 - (fontMetrics.ascent + fontMetrics.descent) / 2 + height / 4;
 
