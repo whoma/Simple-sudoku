@@ -35,7 +35,7 @@ public class Sudo extends View {
     }
 
 
-    //计算对应的 x y 已有的数据
+    // 计算对应的 x y 已有的数据
     public int[] computerXAndYUsed(int x, int y) {
         int used[] = new int[9];
 
@@ -56,7 +56,7 @@ public class Sudo extends View {
         }
 
         // 查找网格
-        //计算出 x y 在网格中的最初位置
+        // 计算出 x y 在网格中的最初位置
         int xStart = (x / 3) * 3;
         int yStart = (y / 3) * 3;
 
@@ -82,7 +82,7 @@ public class Sudo extends View {
 
     // 进行修改
     public void setSTR(int x, int y, char c) {
-        //得到 x y 的长度
+        // 得到 x y 的长度
         int index = y * 9 + x;
         String reSTR = STR.substring(0, index);
         reSTR += c;
@@ -90,14 +90,14 @@ public class Sudo extends View {
         STR = reSTR;
     }
 
-    //进行重新绘图
+    // 进行重新绘图
     public void reDraw() {
-        //进行数据刷新
+        // 进行数据刷新
         getUsedArray();
         invalidate();
     }
 
-    //得到对应 x y 的值
+    // 得到对应 x y 的值
     public int getValue(int x, int y) {
         return STR.charAt(y * 9 + x) - '0';
     }
@@ -186,19 +186,19 @@ public class Sudo extends View {
             if (getValue(x, y) == 0) {
                 int used[] = getUsedToArray(x, y);
 
-                //出现对话框，提供用户可添选数据
+                // 出现对话框，提供用户可添选数据
                 final AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
                 final AlertDialog dialog = builder.create();
                 View item = LayoutInflater.from(mContext).inflate(R.layout.item_choose_layout, null);
                 findAllBt(item);
 
-                //将对应的 x y 上已经出现的数字进行屏蔽
+                // 将对应的 x y 上已经出现的数字进行屏蔽
                 for (int i = 0; i < 9; i++) {
                     if (used[i] != 0) {
                         bt[i].setVisibility(View.INVISIBLE);
                     }
                 }
-                //设置点击事件
+                // 设置点击事件
                 for (int i = 0; i < 9; i++) {
                     final char t = (char) (i + 1 + '0');
                     bt[i].setOnClickListener(new OnClickListener() {
@@ -221,7 +221,7 @@ public class Sudo extends View {
         return super.onTouchEvent(event);
     }
 
-    //查找所有的 Button
+    // 查找所有的 Button
     public void findAllBt(View view) {
         bt[0] = (Button) view.findViewById(R.id.bt1);
         bt[1] = (Button) view.findViewById(R.id.bt2);
